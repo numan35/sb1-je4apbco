@@ -45,7 +45,7 @@ const blogPosts = [
   {
     id: 5,
     title: 'Energy Efficiency Tips for Luxury Appliances',
-    excerpt: 'Luxury appliances don't have to mean high energy bills. Discover how to maximize the efficiency of your high-end kitchen appliances.',
+    excerpt: 'Luxury appliances don\'t have to mean high energy bills. Discover how to maximize the efficiency of your high-end kitchen appliances.',
     image: '/subzero2.jpg',
     date: 'April 20, 2025',
     author: 'David Wilson',
