@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Calendar, User, ArrowRight, Tool, Clock, CheckCircle } from 'lucide-react';
+import { Calendar, User, ArrowRight, PenTool as Tool, Clock, CheckCircle } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 
 const BlogPage = () => {
