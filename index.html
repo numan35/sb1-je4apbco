@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/par-logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premium Appliance Repair | SubZero, Wolf & Viking Specialists in Atlanta</title>
+    <meta name="description" content="Expert luxury appliance repair in Atlanta. Specialized service for SubZero, Wolf, Viking & high-end brands. Same-day service available. EPA certified technicians." />
+    <meta name="keywords" content="luxury appliance repair, SubZero repair, Wolf appliance service, Viking appliance repair, Atlanta appliance repair, high-end appliance service" />
+    <meta property="og:title" content="Premium Appliance Repair | SubZero, Wolf & Viking Specialists" />
+    <meta property="og:description" content="Expert luxury appliance repair in Atlanta. Specialized service for SubZero, Wolf, Viking & high-end brands. Same-day service available." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/heroImage.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://premiumappliance.co" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16536309035"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-16536309035');
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Premium Appliance Repair",
+        "image": "/logoTransparent.png",
+        "description": "Expert luxury appliance repair service specializing in SubZero, Wolf, and Viking appliances in Atlanta.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "GA",
+          "addressLocality": "Atlanta"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "33.7490",
+          "longitude": "-84.3880"
+        },
+        "url": "https://premiumappliance.co",
+        "telephone": "+14704521545",
+        "priceRange": "$$",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "07:00",
+            "closes": "19:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "08:00",
+            "closes": "17:00"
+          }
+        ]
+      }
+    </script>
+    <!-- A hidden form that Netlify needs -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <select name="appliance"></select>
+      <textarea name="issue"></textarea>
+    </form>
+    <form name="booking" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="address" />
+      <select name="appliance"></select>
+      <input type="text" name="model" />
+      <textarea name="issue"></textarea>
+      <input type="text" name="date" />
+      <input type="text" name="time" />
+    </form>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
