@@ -10,7 +10,7 @@ const BlogPage = () => {
     id: 1,
     title: 'Common Issues with SubZero Refrigerators and How to Fix Them',
     excerpt: 'SubZero refrigerators are known for their reliability, but even the best appliances can experience issues. Learn about the most common problems and how our technicians address them.',
-    content: 'SubZero refrigerators are premium appliances that typically offer exceptional reliability and performance. However, like any complex appliance, they can develop issues over time. In this article, we'll explore the most common problems SubZero owners encounter and provide professional insights on how to address them.',
+    content: 'SubZero refrigerators are premium appliances that typically offer exceptional reliability and performance. However, like any complex appliance, they can develop issues over time. In this article, we\'ll explore the most common problems SubZero owners encounter and provide professional insights on how to address them.',
     image: '/subzero1.jpg',
     date: 'May 15, 2025',
     author: 'John Smith',
