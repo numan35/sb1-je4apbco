@@ -25,6 +25,7 @@ import AlpharettaWolfPage from './components/wolf/AlpharettaWolfPage';
 import AlpharettaSubZeroPage from './components/subzero/AlpharettaSubZeroPage';
 import AlpharettaVikingPage from './components/viking/AlpharettaVikingPage';
 import ThankYouPage from './components/ThankYouPage';
+import BlogPage from './components/BlogPage';
 import BuiltInRefrigeratorPage from './components/subzero/BuiltInRefrigeratorPage';
 import WineStoragePage from './components/subzero/WineStoragePage';
 import UnderCounterPage from './components/subzero/UnderCounterPage';
@@ -175,6 +176,7 @@ function App() {
             <Route path="/wolf/ventilation" element={<VentilationPage />} />
             <Route path="/wolf/microwave-drawer" element={<MicrowaveDrawerPage />} />
             <Route path="/service-area" element={<ServiceAreaPage />} />
+            <Route path="/blog" element={<BlogPage />} />
             <Route path="/atlanta" element={<AtlantaServicePage />} />
             <Route path="/alpharetta" element={<AlpharettaServicePage />} />
             <Route path="/alpharetta/wolf-repair" element={<AlpharettaWolfPage />} />

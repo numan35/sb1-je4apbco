@@ -89,6 +89,12 @@ const Header = () => {
             >
               Service Area
             </Link>
+            <Link 
+              to="/blog" 
+              className="text-sm font-medium text-white hover:text-metallic-300 transition"
+            >
+              Blog
+            </Link>
             {isHomePage && (
               <a 
                 href="#services" 
@@ -160,6 +166,9 @@ const Header = () => {
           </Link>
           <Link to="/service-area" onClick={handleLinkClick} className="block py-2 text-white font-medium">
             Service Area
+          </Link>
+          <Link to="/blog" onClick={handleLinkClick} className="block py-2 text-white font-medium">
+            Blog
           </Link>
           {isHomePage && (
             <a href="#services" onClick={handleLinkClick} className="block py-2 text-white font-medium">
