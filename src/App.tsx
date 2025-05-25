@@ -41,6 +41,45 @@ import VikingOutdoorGrillPage from './components/viking/OutdoorGrillPage';
 import AnimatedSection from './components/AnimatedSection';
 import useScrollToTop from './utils/useScrollToTop';
 import ScheduleButton from './components/ScheduleButton';
+import MariettaWolfPage from './components/wolf/MariettaWolfPage';
+import MariettaSubZeroPage from './components/subzero/MariettaSubZeroPage';
+import MariettaVikingPage from './components/viking/MariettaVikingPage';
+import BrookhavenWolfPage from './components/wolf/BrookhavenWolfPage';
+import BrookhavenSubZeroPage from './components/subzero/BrookhavenSubZeroPage';
+import BrookhavenVikingPage from './components/viking/BrookhavenVikingPage';
+import KennesawWolfPage from './components/wolf/KennesawWolfPage';
+import KennesawSubZeroPage from './components/subzero/KennesawSubZeroPage';
+import KennesawVikingPage from './components/viking/KennesawVikingPage';
+import RoswellWolfPage from './components/wolf/RoswellWolfPage';
+import RoswellSubZeroPage from './components/subzero/RoswellSubZeroPage';
+import RoswellVikingPage from './components/viking/RoswellVikingPage';
+import SugarHillWolfPage from './components/wolf/SugarHillWolfPage';
+import SugarHillSubZeroPage from './components/subzero/SugarHillSubZeroPage';
+import SugarHillVikingPage from './components/viking/SugarHillVikingPage';
+import CantonWolfPage from './components/wolf/CantonWolfPage';
+import CantonSubZeroPage from './components/subzero/CantonSubZeroPage';
+import CantonVikingPage from './components/viking/CantonVikingPage';
+import WoodstockWolfPage from './components/wolf/WoodstockWolfPage';
+import WoodstockSubZeroPage from './components/subzero/WoodstockSubZeroPage';
+import WoodstockVikingPage from './components/viking/WoodstockVikingPage';
+import ViningsWolfPage from './components/wolf/ViningsWolfPage';
+import ViningsSubZeroPage from './components/subzero/ViningsSubZeroPage';
+import ViningsVikingPage from './components/viking/ViningsVikingPage';
+import SmyrnaWolfPage from './components/wolf/SmyrnaWolfPage';
+import SmyrnaSubZeroPage from './components/subzero/SmyrnaSubZeroPage';
+import SmyrnaVikingPage from './components/viking/SmyrnaVikingPage';
+import BufordWolfPage from './components/wolf/BufordWolfPage';
+import BufordSubZeroPage from './components/subzero/BufordSubZeroPage';
+import BufordVikingPage from './components/viking/BufordVikingPage';
+import LawrancevilleWolfPage from './components/wolf/LawrancevilleWolfPage';
+import LawrancevilleSubZeroPage from './components/subzero/LawrancevilleSubZeroPage';
+import LawrancevilleVikingPage from './components/viking/LawrancevilleVikingPage';
+import JohnsCreekWolfPage from './components/wolf/JohnsCreekWolfPage';
+import JohnsCreekSubZeroPage from './components/subzero/JohnsCreekSubZeroPage';
+import JohnsCreekVikingPage from './components/viking/JohnsCreekVikingPage';
+import CummingWolfPage from './components/wolf/CummingWolfPage';
+import CummingSubZeroPage from './components/subzero/CummingSubZeroPage';
+import CummingVikingPage from './components/viking/CummingVikingPage';
 
 function ScrollToTop() {
   useScrollToTop();
@@ -78,7 +117,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/book" element={<BookingPage />} />
-             <Route path="/viking" element={<VikingPage />} />
+            <Route path="/viking" element={<VikingPage />} />
             <Route path="/viking/refrigerator" element={<RefrigeratorPage />} />
             <Route path="/viking/dishwasher" element={<DishwasherPage />} />
             <Route path="/viking/microwave-drawer" element={<MicrowaveDrawerPage />} />
