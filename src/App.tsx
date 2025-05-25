@@ -142,6 +142,7 @@ import StoneMountainServicePage from './components/StoneMountainServicePage';
 import TuckerServicePage from './components/TuckerServicePage';
 import DoravilleServicePage from './components/DoravilleServicePage';
 import ThankYouPage from './components/ThankYouPage';
+import BlogPage from './components/BlogPage';
 import BuiltInRefrigeratorPage from './components/subzero/BuiltInRefrigeratorPage';
 import WineStoragePage from './components/subzero/WineStoragePage';
 import UnderCounterPage from './components/subzero/UnderCounterPage';
@@ -253,6 +254,7 @@ function App() {
             <Route path="/wolf/ventilation" element={<VentilationPage />} />
             <Route path="/wolf/microwave-drawer" element={<MicrowaveDrawerPage />} />
             <Route path="/service-area" element={<ServiceAreaPage />} />
+            <Route path="/blog" element={<BlogPage />} />
             <Route path="/atlanta" element={<AtlantaServicePage />} />
             <Route path="/alpharetta" element={<AlpharettaServicePage />} />
             <Route path="/milton" element={<MiltonServicePage />} />
