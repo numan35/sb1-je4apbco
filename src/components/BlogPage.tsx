@@ -177,8 +177,9 @@ const BlogPage = () => {
         )}
 
         {!loading && !error && featuredPost && (
-        {/* Hero Section */}
-        <div className="relative mb-16">
+          <>
+            {/* Hero Section */}
+            <div className="relative mb-16">
           <div className="bg-navy-900 py-16">
             <div className="container mx-auto px-4">
               <div className="max-w-3xl mx-auto text-center">
@@ -503,6 +504,7 @@ const BlogPage = () => {
             </div>
           </div>
         </div>
+          </>
         )}
       </div>
     </>
