@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Calendar, User, ArrowRight, PenTool as Tool, Clock, CheckCircle } from 'lucide-react';
+import { Calendar, User, ArrowRight, PenTool, PenTool as Tool, Clock, CheckCircle } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import { getAllBlogPosts, BlogPost } from '../services/blogService';
 
@@ -182,13 +182,22 @@ const BlogPage = () => {
             <div className="relative mb-16">
           <div className="bg-navy-900 py-16">
             <div className="container mx-auto px-4">
-              <div className="max-w-3xl mx-auto text-center">
+              <div className="max-w-3xl mx-auto text-center relative">
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
                   Luxury Appliance Maintenance & Repair Blog
                 </h1>
                 <p className="text-xl text-gray-300">
                   Expert insights, maintenance tips, and troubleshooting guides for your high-end appliances
                 </p>
+                <div className="mt-6">
+                  <Link 
+                    to="/blog/editor"
+                    className="inline-flex items-center bg-gold-500 hover:bg-gold-600 text-white font-medium py-2 px-4 rounded-md transition-all duration-300"
+                  >
+                    <PenTool size={16} className="mr-2" />
+                    Create New Post
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
