@@ -1,81 +1,127 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Calendar, User, ArrowRight, PenTool as Tool, Clock, CheckCircle } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
+import { getAllBlogPosts, BlogPost } from '../services/blogService';
 
 const BlogPage = () => {
-  // Sample blog post data
-  const featuredPost = {
-    id: 1,
-    title: 'Common Issues with SubZero Refrigerators and How to Fix Them',
-    excerpt: 'SubZero refrigerators are known for their reliability, but even the best appliances can experience issues. Learn about the most common problems and how our technicians address them.',
-    content: 'SubZero refrigerators are premium appliances that typically offer exceptional reliability and performance. However, like any complex appliance, they can develop issues over time. In this article, we\'ll explore the most common problems SubZero owners encounter and provide professional insights on how to address them.',
-    image: '/subzero1.jpg',
-    date: 'May 15, 2025',
-    author: 'John Smith',
-    authorTitle: 'Master Technician',
-    slug: 'common-issues-subzero-refrigerators',
-    category: 'SubZero'
-  };
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [featuredPost, setFeaturedPost] = useState<BlogPost | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   
-  const blogPosts = [
-    {
-      id: 2,
-      title: 'Maintaining Your Wolf Range for Optimal Performance',
-      excerpt: 'Regular maintenance is key to keeping your Wolf range performing at its best. Discover professional tips for maintaining your luxury cooking appliance.',
-      image: '/wolf1.jpg',
-      date: 'May 10, 2025',
-      author: 'Sarah Johnson',
-      authorTitle: 'Senior Technician',
-      slug: 'maintaining-wolf-range-optimal-performance',
-      category: 'Wolf'
-    },
-    {
-      id: 3,
-      title: 'Viking vs. Wolf: Comparing Luxury Cooking Appliances',
-      excerpt: 'Trying to decide between Viking and Wolf for your kitchen? Our experts break down the differences, similarities, and unique features of each brand.',
-      image: '/viking1.jpeg',
-      date: 'May 5, 2025',
-      author: 'Michael Brown',
-      authorTitle: 'Appliance Specialist',
-      slug: 'viking-vs-wolf-comparing-luxury-appliances',
-      category: 'Comparison'
-    },
-    {
-      id: 4,
-      title: 'The Benefits of Professional Appliance Installation',
-      excerpt: 'Proper installation is crucial for the performance and longevity of your luxury appliances. Learn why professional installation is worth the investment.',
-      image: '/wolf3.jpg',
-      date: 'April 28, 2025',
-      author: 'Emily Davis',
-      authorTitle: 'Installation Expert',
-      slug: 'benefits-professional-appliance-installation',
-      category: 'Installation'
-    },
-    {
-      id: 5,
-      title: 'Energy Efficiency Tips for Luxury Appliances',
-      excerpt: 'Luxury appliances don\'t have to mean high energy bills. Discover how to maximize the efficiency of your high-end kitchen appliances.',
-      image: '/subzero2.jpg',
-      date: 'April 20, 2025',
-      author: 'David Wilson',
-      authorTitle: 'Energy Efficiency Consultant',
-      slug: 'energy-efficiency-tips-luxury-appliances',
-      category: 'Maintenance'
-    },
-    {
-      id: 6,
-      title: 'Choosing the Right Ventilation System for Your Kitchen',
-      excerpt: 'Proper ventilation is essential for any kitchen, especially with high-performance cooking appliances. Learn how to select the right system for your needs.',
-      image: '/wolfHood.jpg',
-      date: 'April 15, 2025',
-      author: 'Jennifer Taylor',
-      authorTitle: 'Kitchen Design Specialist',
-      slug: 'choosing-right-ventilation-system-kitchen',
-      category: 'Wolf'
-    }
-  ];
+  useEffect(() => {
+    const fetchBlogPosts = async () => {
+      try {
+        setLoading(true);
+        const posts = await getAllBlogPosts();
+        
+        if (posts.length > 0) {
+          // Set the first post as the featured post
+          setFeaturedPost(posts[0]);
+          // Set the rest of the posts
+          setBlogPosts(posts.slice(1));
+        } else {
+          // If no posts, use sample data
+          setFeaturedPost({
+            id: '1',
+            title: 'Common Issues with SubZero Refrigerators and How to Fix Them',
+            excerpt: 'SubZero refrigerators are known for their reliability, but even the best appliances can experience issues. Learn about the most common problems and how our technicians address them.',
+            content: 'SubZero refrigerators are premium appliances that typically offer exceptional reliability and performance. However, like any complex appliance, they can develop issues over time. In this article, we\'ll explore the most common problems SubZero owners encounter and provide professional insights on how to address them.',
+            image_url: '/subzero1.jpg',
+            published_at: new Date().toISOString(),
+            author: 'John Smith',
+            author_title: 'Master Technician',
+            slug: 'common-issues-subzero-refrigerators',
+            category: 'SubZero',
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          });
+          
+          setBlogPosts([
+            {
+              id: '2',
+              title: 'Maintaining Your Wolf Range for Optimal Performance',
+              excerpt: 'Regular maintenance is key to keeping your Wolf range performing at its best. Discover professional tips for maintaining your luxury cooking appliance.',
+              content: 'Regular maintenance is essential for keeping your Wolf range in top condition. In this guide, we share professional tips and best practices.',
+              image_url: '/wolf1.jpg',
+              published_at: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
+              author: 'Sarah Johnson',
+              author_title: 'Senior Technician',
+              slug: 'maintaining-wolf-range-optimal-performance',
+              category: 'Wolf',
+              created_at: new Date().toISOString(),
+              updated_at: new Date().toISOString()
+            },
+            {
+              id: '3',
+              title: 'Viking vs. Wolf: Comparing Luxury Cooking Appliances',
+              excerpt: 'Trying to decide between Viking and Wolf for your kitchen? Our experts break down the differences, similarities, and unique features of each brand.',
+              content: 'When choosing between Viking and Wolf for your luxury kitchen, there are several factors to consider. This comparison guide helps you make an informed decision.',
+              image_url: '/viking1.jpeg',
+              published_at: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString(),
+              author: 'Michael Brown',
+              author_title: 'Appliance Specialist',
+              slug: 'viking-vs-wolf-comparing-luxury-appliances',
+              category: 'Comparison',
+              created_at: new Date().toISOString(),
+              updated_at: new Date().toISOString()
+            },
+            {
+              id: '4',
+              title: 'The Benefits of Professional Appliance Installation',
+              excerpt: 'Proper installation is crucial for the performance and longevity of your luxury appliances. Learn why professional installation is worth the investment.',
+              content: 'Professional installation ensures your luxury appliances perform optimally and last longer. This article explains the benefits and what to expect.',
+              image_url: '/wolf3.jpg',
+              published_at: new Date(Date.now() - 15 * 24 * 60 * 60 * 1000).toISOString(),
+              author: 'Emily Davis',
+              author_title: 'Installation Expert',
+              slug: 'benefits-professional-appliance-installation',
+              category: 'Installation',
+              created_at: new Date().toISOString(),
+              updated_at: new Date().toISOString()
+            },
+            {
+              id: '5',
+              title: 'Energy Efficiency Tips for Luxury Appliances',
+              excerpt: 'Luxury appliances don\'t have to mean high energy bills. Discover how to maximize the efficiency of your high-end kitchen appliances.',
+              content: 'Learn how to optimize your luxury appliances for energy efficiency without sacrificing performance. These tips will help reduce your energy bills.',
+              image_url: '/subzero2.jpg',
+              published_at: new Date(Date.now() - 20 * 24 * 60 * 60 * 1000).toISOString(),
+              author: 'David Wilson',
+              author_title: 'Energy Efficiency Consultant',
+              slug: 'energy-efficiency-tips-luxury-appliances',
+              category: 'Maintenance',
+              created_at: new Date().toISOString(),
+              updated_at: new Date().toISOString()
+            },
+            {
+              id: '6',
+              title: 'Choosing the Right Ventilation System for Your Kitchen',
+              excerpt: 'Proper ventilation is essential for any kitchen, especially with high-performance cooking appliances. Learn how to select the right system for your needs.',
+              content: 'A proper ventilation system is crucial for maintaining air quality in kitchens with high-performance appliances. This guide helps you choose the right system.',
+              image_url: '/wolfHood.jpg',
+              published_at: new Date(Date.now() - 25 * 24 * 60 * 60 * 1000).toISOString(),
+              author: 'Jennifer Taylor',
+              author_title: 'Kitchen Design Specialist',
+              slug: 'choosing-right-ventilation-system-kitchen',
+              category: 'Wolf',
+              created_at: new Date().toISOString(),
+              updated_at: new Date().toISOString()
+            }
+          ]);
+        }
+      } catch (err) {
+        console.error('Error fetching blog posts:', err);
+        setError('Failed to load blog posts. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogPosts();
+  }, []);
 
   const categories = [
     { name: 'SubZero', count: 12 },
@@ -114,6 +160,23 @@ const BlogPage = () => {
       </Helmet>
 
       <div className="pt-24 pb-16 bg-gray-50">
+        {loading && (
+          <div className="container mx-auto px-4 py-12 text-center">
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-gold-500 border-r-transparent"></div>
+            <p className="mt-4 text-gray-600">Loading blog posts...</p>
+          </div>
+        )}
+
+        {error && (
+          <div className="container mx-auto px-4 py-12 text-center">
+            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+              <strong className="font-bold">Error: </strong>
+              <span className="block sm:inline">{error}</span>
+            </div>
+          </div>
+        )}
+
+        {!loading && !error && featuredPost && (
         {/* Hero Section */}
         <div className="relative mb-16">
           <div className="bg-navy-900 py-16">
@@ -131,7 +194,7 @@ const BlogPage = () => {
         </div>
 
         <div className="container mx-auto px-4">
-          <AnimatedSection>
+          <AnimatedSection key="featured-post">
             {/* Featured Post */}
             <div className="mb-16">
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
@@ -139,8 +202,8 @@ const BlogPage = () => {
                   <div className="md:w-1/2">
                     <div className="h-64 md:h-full overflow-hidden">
                       <img 
-                        src={featuredPost.image} 
-                        alt={featuredPost.title}
+                        src={featuredPost.image_url} 
+                        alt={featuredPost.title || ''}
                         className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                       />
                     </div>
@@ -148,10 +211,14 @@ const BlogPage = () => {
                   <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
                     <div className="flex items-center text-sm text-gray-500 mb-3">
                       <span className="px-3 py-1 bg-gold-100 text-gold-800 rounded-full text-xs font-medium mr-3">
-                        {featuredPost.category}
+                        {featuredPost.category || 'Uncategorized'}
                       </span>
                       <Calendar size={16} className="mr-2" />
-                      <span>{featuredPost.date}</span>
+                      <span>{new Date(featuredPost.published_at).toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                      })}</span>
                     </div>
                     <h2 className="text-2xl md:text-3xl font-bold text-navy-900 mb-4">
                       {featuredPost.title}
@@ -162,12 +229,12 @@ const BlogPage = () => {
                     <div className="flex items-center mb-6">
                       <img 
                         src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=128" 
-                        alt={featuredPost.author}
+                        alt={featuredPost.author || ''}
                         className="w-10 h-10 rounded-full object-cover mr-3"
                       />
                       <div>
                         <p className="font-medium text-navy-900">{featuredPost.author}</p>
-                        <p className="text-sm text-gray-500">{featuredPost.authorTitle}</p>
+                        <p className="text-sm text-gray-500">{featuredPost.author_title}</p>
                       </div>
                     </div>
                     <Link 
@@ -185,7 +252,7 @@ const BlogPage = () => {
 
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="lg:w-2/3">
-              <AnimatedSection delay={200}>
+              <AnimatedSection delay={200} key="blog-grid">
                 {/* Blog Post Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                   {blogPosts.map((post) => (
@@ -193,7 +260,7 @@ const BlogPage = () => {
                       <Link to={`/blog/${post.slug}`}>
                         <div className="h-48 overflow-hidden">
                           <img 
-                            src={post.image} 
+                            src={post.image_url} 
                             alt={post.title}
                             className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                           />
@@ -204,7 +271,11 @@ const BlogPage = () => {
                               {post.category}
                             </span>
                             <Calendar size={14} className="mr-2" />
-                            <span>{post.date}</span>
+                            <span>{new Date(post.published_at).toLocaleDateString('en-US', { 
+                              year: 'numeric', 
+                              month: 'long', 
+                              day: 'numeric' 
+                            })}</span>
                           </div>
                           <h3 className="text-xl font-bold text-navy-900 mb-3 line-clamp-2">
                             {post.title}
@@ -432,6 +503,7 @@ const BlogPage = () => {
             </div>
           </div>
         </div>
+        )}
       </div>
     </>
   );

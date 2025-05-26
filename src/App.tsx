@@ -26,6 +26,9 @@ import AlpharettaSubZeroPage from './components/subzero/AlpharettaSubZeroPage';
 import AlpharettaVikingPage from './components/viking/AlpharettaVikingPage';
 import ThankYouPage from './components/ThankYouPage';
 import BlogPage from './components/BlogPage';
+import BlogPostPage from './components/BlogPostPage';
+import BlogCategoryPage from './components/BlogCategoryPage';
+import BlogEditor from './components/BlogEditor';
 import BuiltInRefrigeratorPage from './components/subzero/BuiltInRefrigeratorPage';
 import WineStoragePage from './components/subzero/WineStoragePage';
 import UnderCounterPage from './components/subzero/UnderCounterPage';
@@ -187,6 +190,9 @@ function App() {
             <Route path="/avondale-estates/viking-repair" element={<AvondaleEstatesVikingPage />} />
             <Route path="/avondale-estates" element={<AvondaleEstatesServicePage />} />
             <Route path="/thank-you" element={<ThankYouPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
+            <Route path="/blog/category/:category" element={<BlogCategoryPage />} />
+            <Route path="/blog/editor" element={<BlogEditor />} />
           </Routes>
         </main>
         <Footer />
